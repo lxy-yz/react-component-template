@@ -1,12 +1,13 @@
 // FIXME: https://github.com/testing-library/jest-dom/issues/427
-/* eslint-disable @typescript-eslint/ban-ts-comment */
+
+import React from 'react'
+
 import Component from '../src/Component'
 import { fireEvent, render } from './test-utils'
 
 describe('Component', () => {
   it('should render', () => {
     const { getByText } = render(<Component />)
-    // @ts-expect-error
     expect(getByText('Count is 0')).toBeInTheDocument()
   })
 
@@ -15,7 +16,6 @@ describe('Component', () => {
 
     await fireEvent.click(getByText('Increment'))
 
-    // @ts-expect-error
     expect(getByText('Count is 1')).toBeInTheDocument()
   })
 
@@ -24,7 +24,6 @@ describe('Component', () => {
 
     await fireEvent.click(getByText('Decrement'))
 
-    // @ts-expect-error
     expect(getByText('Count is -1')).toBeInTheDocument()
   })
 
@@ -32,11 +31,9 @@ describe('Component', () => {
     const { getByText } = render(<Component />)
 
     await fireEvent.click(getByText('Decrement'))
-    // @ts-expect-error
     expect(getByText('Count is -1')).toBeInTheDocument()
 
     await fireEvent.click(getByText('Reset'))
-    // @ts-expect-error
     expect(getByText('Count is 0')).toBeInTheDocument()
   })
 })

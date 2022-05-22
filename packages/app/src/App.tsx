@@ -1,5 +1,4 @@
 import { Component } from 'lib'
-
 import 'lib/style.css'
 
 import logo from './logo.svg'
@@ -9,10 +8,11 @@ import './App.css'
 function App() {
   return (
       <div className="App">
+        <Component initial={10} />
+
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>Hello Vite + React!</p>
-          <Component initial={10} />
           <p>
             Edit <code>App.tsx</code> and save to test HMR updates.
           </p>

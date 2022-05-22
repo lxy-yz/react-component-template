@@ -10,9 +10,12 @@
     "plugins": [
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
-      ["@semantic-release/npm", {
-        "publish": false
-      }],
+      [
+        "@semantic-release/npm",
+        {
+          "publish": false
+        }
+      ],
       "@semantic-release/github"
     ]
   },
@@ -23,8 +26,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "prettier --ignore-path ./.prettierignore --write ",
-      "eslint --cache"
+      "eslint --fix"
     ]
   },
   "eslintConfig": {
@@ -32,7 +34,8 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "build:all": "pnpm run build -r",
+    "build": "pnpm --filter lib build",
+    "dev": "pnpm dev:lib & pnpm dev:app",
     "dev:app": "pnpm --filter app dev",
     "dev:lib": "pnpm --filter lib dev"
   },
@@ -40,7 +43,7 @@
     "@antfu/eslint-config": "latest",
     "@types/node": "17.0.8",
     "eslint": "^8.11.0",
-    "husky": "7.0.4",
+    "husky": "^8.0.1",
     "lint-staged": "12.3.3",
     "semantic-release": "^19.0.2",
     "typescript": "4.4.4"
