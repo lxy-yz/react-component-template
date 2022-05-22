@@ -1,0 +1,50 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest] # [ubuntu-latest, windows-latest]
+        node-version: [16.x] # [14.x, 16.x]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: pnpm/action-setup@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+      - run: pnpm i
+      #- run: pnpm package -r
+      - run: pnpm test -r
+        env:
+          CI: true
+
+  release:
+      if: "!contains(github.event.head_commit.message, 'skip-release') && !contains(github.event.head_commit.message, 'skip-ci') && github.event_name != 'pull_request'"
+      runs-on: ubuntu-latest
+      needs: ['build']
+
+      steps:
+        - uses: actions/checkout@v2
+        - uses: pnpm/action-setup@v2
+        - uses: actions/setup-node@v2
+          with:
+            node-version: ${{ matrix.node-version }}
+            cache: 'pnpm'
+        - run: pnpm i
+        - run: pnpm dlx semantic-release --branches main --ignore-workspace-root-check
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -1,0 +1,53 @@
+{
+  "name": "root",
+  "packageManager": "pnpm@7.0.0",
+  "private": true,
+  "license": "MIT",
+  "engines": {
+    "pnpm": ">=6"
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      ["@semantic-release/npm", {
+        "publish": false
+      }],
+      "@semantic-release/github"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --ignore-path ./.prettierignore --write ",
+      "eslint --cache"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "@antfu"
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "build:all": "pnpm run build -r",
+    "dev:app": "pnpm --filter app dev",
+    "dev:lib": "pnpm --filter lib dev"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "latest",
+    "@types/lodash-es": "4.17.5",
+    "@types/node": "17.0.8",
+    "eslint": "^8.11.0",
+    "husky": "7.0.4",
+    "lint-staged": "12.3.3",
+    "semantic-release": "^19.0.2",
+    "tsconfig-replace-paths": "0.0.11",
+    "typescript": "4.4.4",
+    "vite": "2.7.13",
+    "vite-tsconfig-paths": "3.4.0",
+    "vitest": "0.5.9"
+  }
+}

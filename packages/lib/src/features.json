@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Feature Toggle",
+    "description": "Displays the toggle UI(itself) to the user",
+    "enabled": true
+  },
+  {
+    "name": "Enabled Feature",
+    "description": "This feature is enabled",
+    "enabled": true
+  },
+  {
+    "name": "Disabled Feature",
+    "description": "This feature is disabled",
+    "enabled": false
+  }
+]
