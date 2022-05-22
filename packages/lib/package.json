@@ -20,8 +20,7 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
+    "build": "pnpm lint & tsc && vite build",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "lint": "eslint ."
@@ -29,6 +28,9 @@
   "peerDependencies": {
     "react": " 17.x || ^18.0.0",
     "react-dom": " 17.x || ^18.0.0"
+  },
+  "dependencies": {
+    "usehooks-ts": "^2.5.3"
   },
   "devDependencies": {
     "@testing-library/dom": "^8.13.0",
@@ -48,8 +50,5 @@
     "vite": "^2.9.9",
     "vite-plugin-dts": "^1.1.1",
     "vitest": "latest"
-  },
-  "dependencies": {
-    "usehooks-ts": "^2.5.3"
   }
 }
