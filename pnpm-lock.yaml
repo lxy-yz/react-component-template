@@ -67,13 +67,11 @@ importers:
       react: ^18.0.0
       react-dom: ^18.0.0
       tailwindcss: ^3.0.24
-      test: ^0.6.0
       usehooks-ts: ^2.5.3
       vite: ^2.9.9
       vite-plugin-dts: ^1.1.1
       vitest: latest
     dependencies:
-      test: 0.6.0
       usehooks-ts: 2.5.3_react@18.1.0
     devDependencies:
       '@testing-library/dom': 8.13.0
@@ -1286,11 +1284,6 @@ packages:
     dependencies:
       type-fest: 1.4.0
     dev: true
-
-  /ansi-font/0.0.2:
-    resolution: {integrity: sha512-F0/7wvsUxF38bWUB1yI2O4Cxm04XUvnF5emQmvjJyPjYkbTbiQR51pHmxuFBUkTvWA2vG0Uvzm2/TU+teFTwwg==}
-    engines: {node: '>=0.4.x'}
-    dev: false
 
   /ansi-regex/5.0.1:
     resolution: {integrity: sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==}
@@ -5404,12 +5397,6 @@ packages:
       type-fest: 0.16.0
       unique-string: 2.0.0
     dev: true
-
-  /test/0.6.0:
-    resolution: {integrity: sha1-WYasRF7Bd1QyJRLRBLoyyKY+k44=}
-    dependencies:
-      ansi-font: 0.0.2
-    dev: false
 
   /text-extensions/1.9.0:
     resolution: {integrity: sha512-wiBrwC1EhBelW12Zy26JeOUkQ5mRu+5o8rpsJk5+2t+Y5vE7e842qtZDQ2g1NpX/29HdyFeJ4nSIhI47ENSxlQ==}

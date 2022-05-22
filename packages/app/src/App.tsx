@@ -1,37 +1,18 @@
-import { useState } from 'react'
+import { Component } from 'lib'
+
+import 'lib/style.css'
 
 import logo from './logo.svg'
 
 import './App.css'
 
-import { FeatureProvider, FeatureToggle, useFeature } from 'lib'
-
-import 'lib/style.css'
-
-const RenderFeatureToggleIfEnabled = () => {
-  const { enabled: isFeatureToggleEnabled } = useFeature('Feature Toggle')
-
-  return isFeatureToggleEnabled ? <FeatureToggle /> : null
-}
-
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <FeatureProvider>
       <div className="App">
-        <RenderFeatureToggleIfEnabled />
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>Hello Vite + React!</p>
-          <p>
-            <button
-              type="button"
-              onClick={() => setCount((count) => count + 1)}
-            >
-              count is: {count}
-            </button>
-          </p>
+          <Component initial={10} />
           <p>
             Edit <code>App.tsx</code> and save to test HMR updates.
           </p>
@@ -56,7 +37,6 @@ function App() {
           </p>
         </header>
       </div>
-    </FeatureProvider>
   )
 }
 
