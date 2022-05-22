@@ -1,14 +1,4 @@
-TODOs
-
-- [ ] Add release step to GH Actions
-- [x] Update README
-- [x] Fix CI
-- [x] Vitest
-- [x] https://dev.to/nicolaserny/create-a-react-component-library-with-vite-and-typescript-1ih9
-
----
-
-# Vite React library template
+# Vite React component template
 
 Install all deps
 
@@ -16,13 +6,22 @@ Install all deps
 pnpm i
 ```
 
-Run library with its own vite app (`/packages/lib`)
+Test
+
+```sh
+pnpm test --filter lib
+```
+
+
+Develop
+
+inside its own vite app (`/packages/lib`)
 
 ```sh
 pnpm dev:lib
 ```
 
-Test library within another vite app (`/packages/app`)
+inside another vite app (`/packages/app`)
 
 ```sh
 pnpm dev:app

@@ -1,1 +1,1 @@
-export { useFeature, FeatureProvider, FeatureToggle } from './Features'
+export { default as Component } from './Component'
