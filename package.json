@@ -34,6 +34,7 @@
   },
   "scripts": {
     "prepare": "husky install",
+    "test": "pnpm --filter lib test",
     "build": "pnpm --filter lib build",
     "dev": "pnpm dev:lib & pnpm dev:app",
     "dev:app": "pnpm --filter app dev",
