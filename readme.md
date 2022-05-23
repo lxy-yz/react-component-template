@@ -1,4 +1,4 @@
-# Vite React component template
+# React component template (Rollup/Vite)
 
 Install deps
 
