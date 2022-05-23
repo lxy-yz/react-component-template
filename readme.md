@@ -1,6 +1,6 @@
 # Vite React component template
 
-Install all deps
+Install deps
 
 ```sh
 pnpm i
@@ -9,21 +9,12 @@ pnpm i
 Test
 
 ```sh
-pnpm test --filter lib
+pnpm test
 ```
 
 
 Develop
 
-inside its own vite app (`/packages/lib`)
-
 ```sh
-pnpm dev:lib
+pnpm dev
 ```
-
-inside another vite app (`/packages/app`)
-
-```sh
-pnpm dev:app
-```
-
